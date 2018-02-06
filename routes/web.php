@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('draw','DrawController');
+
+Route::post('/register','Api\UserController@register');	
+Route::post('/login','Api\UserController@login');
+
