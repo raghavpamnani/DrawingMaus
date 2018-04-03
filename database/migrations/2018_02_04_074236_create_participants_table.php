@@ -18,12 +18,13 @@ class CreateParticipantsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('firstname');
-            $table->string('middlename');
+            $table->string('middlename')->nullable();
             $table->string('lastname');
-            $table->boolean('gender');
+            $table->string('gender');
             $table->date('dob');
             $table->string('relation');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
+            $table->string('drawing_sheet')->nullable();
             $table->timestamps();
         });
     }

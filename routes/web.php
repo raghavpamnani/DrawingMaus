@@ -12,11 +12,43 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::resource('draw','DrawController');
+Auth::routes();
 
-Route::post('/register','Api\UserController@register');	
-Route::post('/login','Api\UserController@login');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::post('/mobileLogin', 'OtpController@mobileLogin');
+
+Route::get('/OTPverification', function (){
+	return view('auth.otp');
+});  
+Route::post('/loginWithOtp', 'OtpController@loginWithOtp'); 
+
+Route::post('/validateregister', 'ParticipantController@store'); 
+//Route::resource('participant','ParticipantController');
+
+// for pdf file download
+Route::get('/index','ParticipantController@index');
+Route::get('/downloadPDF/{id}','ParticipantController@downloadPDF');
+
+// To Edit/destroy/update data of participant
+Route::get('/edit/{id}','ParticipantController@edit');
+Route::get('/destroy/{id}','ParticipantController@destroy');
+Route::post('/updateCanditate/{id}','ParticipantController@updateCanditate');
+Route::post('/upload/{id}','ParticipantController@upload');
+Route::get('/form','ParticipantController@form');
+
+// To Change Password 
+Route::get('/profile','SettingController@showChangePasswordForm') ;
+Route::post('/changePassword','SettingController@changePassword')->name('changePassword');
+
+//For Setting profile 
+Route::get('/setting','SettingController@index');
+Route::post('/editProfile','SettingController@updateProfile');
+
+
 

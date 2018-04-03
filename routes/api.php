@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['namespace'=>'Api'],function(){
-	
-});
+// Route::group(['namespace'=>'Api'],function(){
+	/* Route::post('register','UserController@register');
+	Route::group(['prefix'=>'participant'],function(){
+		Route::post('/register','ParticipantController@store');
+	}); */
+// });

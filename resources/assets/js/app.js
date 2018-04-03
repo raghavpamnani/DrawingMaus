@@ -9,6 +9,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+//import Vue from 'vue'
+//import Vuetify from 'vuetify'   
+//Vue.use(Vuetify)
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -16,6 +20,9 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//Vue.component('sample', require('./components/sample.vue'));
+//Vue.component('sidemenu', require('./components/SideMenu.vue'));
+//Vue.component('participateform', require('./components/ParticipateForm.vue'));
 
 const app = new Vue({
     el: '#app'
